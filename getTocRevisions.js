@@ -4,7 +4,7 @@ var request = require('request'),
     fs = require('fs');
 
 var dataPath = 'data/',
-    dataFile = 'ayahuasca.tsv';
+    dataFile = 'ayahuasca_recover.tsv';
 
 var data = d3.tsvParse(fs.readFileSync(dataPath + dataFile, 'utf-8'));
 
