@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/uf0/wiki-toc-scraper/issues"
   },
-  "homepage": "https://github.com/uf0/wiki-toc-scraper#readme"
+  "homepage": "https://github.com/uf0/wiki-toc-scraper#readme",
+  "dependencies": {
+    "d3": "^4.1.1",
+    "request": "^2.73.0"
+  }
 }
