@@ -1,0 +1,27 @@
+{
+  "name": "wiki-toc-scraper",
+  "version": "1.0.0",
+  "description": "download all toc revisions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uf0/wiki-toc-scraper.git"
+  },
+  "keywords": [
+    "wikimedia",
+    "wikipedia",
+    "toc",
+    "table",
+    "of",
+    "content"
+  ],
+  "author": "uf0",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/uf0/wiki-toc-scraper/issues"
+  },
+  "homepage": "https://github.com/uf0/wiki-toc-scraper#readme"
+}
