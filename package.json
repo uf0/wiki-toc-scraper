@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/uf0/wiki-toc-scraper#readme",
   "dependencies": {
+    "async": "^2.0.0-rc.6",
     "d3": "^4.1.1",
     "request": "^2.73.0"
   }
