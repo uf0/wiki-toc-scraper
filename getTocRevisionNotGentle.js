@@ -4,7 +4,7 @@ var request = require('request'),
     fs = require('fs');
 
 var dataPath = 'data/',
-    dataFile = 'ayahuasca.tsv';
+    dataFile = 'Psilocybin_mushroom.tsv';
 
 var data = d3.tsvParse(fs.readFileSync(dataPath + dataFile, 'utf-8'));
 
@@ -28,13 +28,18 @@ var revisions = data.map(function(d){
 })
 
 var pageLang = 'en',
-    pageTitle = 'Ayahuasca',
-    outputFolder = 'data/ayahuascaToc/',
+    pageTitle = 'Psilocybin_mushroom',
+    outputFolder = 'data/Psilocybin_mushroomToc/',
+    count = 0,
+    revLength = revisions.length,
     baseUrl = 'https://'+ pageLang +'.wikipedia.org/w/api.php';
 
-async.eachSeries(
-  revisions,
-  function(revision,callback){
+    //if toomany split the array
+    // console.log(revisions.length);
+    // revisions = revisions.slice(2000,revisions.length)
+revisions.forEach(function(revision){
+
+  setTimeout(function() {
     request({
       url: baseUrl,
       qs: {
@@ -47,20 +52,12 @@ async.eachSeries(
     },function(err, res, body) {
       if(err){
         console.log(err);
-        callback();
+        count++
       }else {
         fs.writeFileSync(outputFolder + revision.oldid + '.json', body)
-        console.log("saved revision " + revision.oldid + " of page " + pageTitle)
-        callback();
+        count++
+        console.log(count + '/' + revLength + ", saved revision " + revision.oldid + " of page " + pageTitle)
       }
-
     })
-  },
-  function(err){
-    if(err){
-      console.log('A toc revision failed')
-    }else{
-      console.log('All toc revisions scraped')
-    }
-  }
-);
+  }, (d3.randomUniform(1, 10)() * 100))
+  });
